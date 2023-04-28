@@ -139,3 +139,8 @@ def encode_namespace(obj: Namespace) -> Any:
 @encode.register(Enum)
 def encode_enum(obj: Enum) -> str:
     return obj.name
+
+
+@encode.register
+def encode_default(obj: object) -> str:
+    return json.dumps(obj)
